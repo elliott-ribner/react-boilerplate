@@ -3,8 +3,9 @@ import Router from 'ampersand-router';
 import Public from './public';
 import Repos from './repos';
 import Layout from './layout.js';
-import qs from 'qs'
-import xhr from 'xhr'
+import qs from 'qs';
+import xhr from 'xhr';
+import app from 'ampersand-app';
 
 export default Router.extend({
   renderPage (page, opts = {layout: true}) {
@@ -21,6 +22,7 @@ export default Router.extend({
     '': 'public',
     'repos': 'repos',
     'login': 'login',
+    'logout': 'logout',
     'auth/callback?:query': 'authCallback'
   },
   public() {
@@ -38,6 +40,10 @@ export default Router.extend({
       scope: 'user, repo'
     })
   },
+  logout() {
+    window.localStorage.clear();
+    window.location = '/';
+  },
   authCallback(query) {
     query = qs.parse(query);
     console.log(query)
@@ -47,6 +53,8 @@ export default Router.extend({
       json: true
     }, (err,req,body) => {
       console.log(body);
+      app.me.token = body.token;
+      this.redirectTo('/repos');
     })
   }
 })
