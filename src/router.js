@@ -30,7 +30,7 @@ export default Router.extend({
     console.log('public');
   },
   repos() {
-    this.renderPage(<Repos />)
+    this.renderPage(<Repos repos={app.me.repos} />)
     console.log('repos');
   },
   login() {
