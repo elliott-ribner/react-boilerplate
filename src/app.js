@@ -7,7 +7,8 @@ window.app = app // optional -- adding app to window so we can work with it in c
 
 app.extend({
   init() {
-    this.me = new Me()
+    this.me = new Me();
+    this.me.fetchInitialData()
     this.router = new Router();
     this.router.history.start();
   }
