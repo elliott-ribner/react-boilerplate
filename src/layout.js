@@ -1,8 +1,8 @@
 import React from 'react';
 import NavHelper from './nav-helper'
-import amperSandMixin from 'ampersand-react-mixin'
+import ampersandMixin from 'ampersand-react-mixin'
 export default React.createClass({
-  mixins: [amperSandMixin],
+  mixins: [ampersandMixin],
   displayName: 'Layout',
   render() {
     return (

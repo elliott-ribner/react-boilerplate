@@ -10,6 +10,7 @@ export default Collection.extend(githubMixin,{
     if(!model) {
       model = new Repo({full_name: fullName})
     }
+    model.fetch()
     return model
   }
 })

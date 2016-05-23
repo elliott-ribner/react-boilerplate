@@ -52,7 +52,6 @@ export default Router.extend({
   },
   authCallback(query) {
     query = qs.parse(query);
-    console.log(query)
 
     xhr({
       url: 'https://masters-react.herokuapp.com/authenticate/' + query.code,
