@@ -6,6 +6,14 @@ export default Model.extend({
     name: 'string',
     full_name: 'string',
     html_url: 'string'
+  },
+  derived: {
+    appUrl: {
+      deps: ['full_name'],
+      fn() {
+        return '/repo/' + this.full_name
+      }
+    }
   }
 
 })
