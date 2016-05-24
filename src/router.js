@@ -25,7 +25,7 @@ export default Router.extend({
     'login': 'login',
     'logout': 'logout',
     'auth/callback?:query': 'authCallback',
-    'repo/:owner/:name': 'repoDetail'
+    'repo/:owner/:name': 'repoDetail',
   },
   public() {
     this.renderPage(<Public />, {layout: false});
@@ -48,7 +48,7 @@ export default Router.extend({
   },
   repoDetail(owner, name) {
     const model = app.me.repos.getByFullName(owner + '/' + name);
-    this.renderPage(<RepoDetail repo={model}/>)
+    this.renderPage(<RepoDetail repo={model} labels={model.labels} />)
   },
   authCallback(query) {
     query = qs.parse(query);
