@@ -5,5 +5,11 @@ export default Model.extend(githubMixin, {
   props: {
     name: 'string',
     color: 'string'
+  },
+  session: {
+    editing: {
+      type: 'boolean',
+      default: false
+    }
   }
 })
